@@ -1,25 +1,11 @@
-## 📊 GitHub Activity
-
-[![GitHub Activity - Last 31 Days](https://github-readme-activity-graph.vercel.app/graph?username=SeokJinYoo98&theme=github-compact&hide_border=true&area=true&days=31&custom_title=GitHub%20Activity%20-%20Last%2031%20Days)](https://github.com/SeokJinYoo98?tab=overview)
-
-최근 31일간의 GitHub 활동입니다.
-
-[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=SeokJinYoo98&show_icons=true&hide_border=true)](https://github.com/SeokJinYoo98?tab=overview)
-
-[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=SeokJinYoo98&layout=compact&hide_border=true)](https://github.com/SeokJinYoo98?tab=repositories)
-
-[전체 기여 기록 보기](https://github.com/SeokJinYoo98?tab=overview) · [저장소 둘러보기](https://github.com/SeokJinYoo98?tab=repositories)
----
-
 # 👋 Yoo Seokjin
 
 ### C# / Unity / .NET Developer
 
 Unity 클라이언트 개발에서 시작해 현재는  
-**서버 · 네트워크 · 백엔드 구조**까지 개발 범위를 확장하고 있습니다.
+**서버 · 네트워크 · 백엔드 구조**까지 개발 범위를 확장하고 있으며,
 
-기능을 빠르게 추가하는 것보다  
-**책임, 데이터 소유권, 실행 흐름을 명확하게 분리하는 구조**에 관심이 많습니다.
+**책임, 데이터 소유권, 실행 흐름을 명확하게 분리하는 구조**에 관심을 가지고 개발합니다.
 
 ---
 
