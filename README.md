@@ -1,9 +1,3 @@
-## 📊 GitHub
-
-[전체 기여 기록 보기](https://github.com/SeokJinYoo98?tab=overview) ·
-[저장소 둘러보기](https://github.com/SeokJinYoo98?tab=repositories)
----
-
 # 👋 Yoo Seokjin
 
 ### C# / Unity / .NET Developer
