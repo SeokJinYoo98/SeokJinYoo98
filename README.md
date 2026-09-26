@@ -1,3 +1,16 @@
+# 📊 GitHub Activity
+
+[![SeokJinYoo98의 최근 31일 GitHub 기여 활동](https://github-readme-activity-graph.vercel.app/graph?username=SeokJinYoo98&theme=github-compact&hide_border=true&area=true&days=31&custom_title=GitHub%20Activity%20-%20Last%2031%20Days)](https://github.com/SeokJinYoo98?tab=overview)
+
+최근 31일의 GitHub 기여 활동입니다. 커밋 외 기여도 포함하며, 이미지 갱신에는 시간이 걸릴 수 있습니다.
+
+[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=SeokJinYoo98&show_icons=true&hide_border=true)](https://github.com/SeokJinYoo98?tab=overview)
+[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=SeokJinYoo98&layout=compact&hide_border=true)](https://github.com/SeokJinYoo98?tab=repositories)
+
+[전체 기여 기록 보기](https://github.com/SeokJinYoo98?tab=overview) · [저장소 둘러보기](https://github.com/SeokJinYoo98?tab=repositories)
+
+---
+
 # 👋 Yoo Seokjin
 
 ### C# / Unity / .NET Developer
@@ -15,21 +28,21 @@ Unity 클라이언트 개발에서 시작해 현재는
 ### Language
 
 ![C#](https://img.shields.io/badge/C%23-512BD4?style=flat-square&logo=csharp&logoColor=white)
+![C++](https://img.shields.io/badge/C%23-512BD4?style=flat-square&logo=csharp&logoColor=white)
 
-### Client
+### Engine
 
-![Unity](https://img.shields.io/badge/Unity-000000?style=flat-square&logo=unity&logoColor=white)
+![UnityEngine](https://img.shields.io/badge/Unity-000000?style=flat-square&logo=unity&logoColor=white)
+![UnrealEngine]
+
+### Graphics API
+![OpenGL]: King of Tanks Team Project (팀장)
+![DirectX]: Rendering Framework
 
 ### Server / Backend
 
 ![.NET](https://img.shields.io/badge/.NET-512BD4?style=flat-square&logo=dotnet&logoColor=white)
 ![TCP](https://img.shields.io/badge/TCP-Networking-00599C?style=flat-square)
-
-### Database / Infrastructure
-
-![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=flat-square&logo=microsoftsqlserver&logoColor=white)
-![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
-![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
 
 ---
 
@@ -40,6 +53,11 @@ Unity 클라이언트 개발에서 시작해 현재는
 
 초기에는 Unity 내부에 게임 로직이 결합되어 있었지만,  
 현재는 게임 규칙과 네트워크 구조를 독립적으로 분리하는 방향으로 발전시키고 있습니다.
+## 개발 화면
+
+![YuJanggi 서버 로그와 두 Unity 클라이언트 개발 화면](./assets/개발화면.png)
+
+서버 로그와 두 Unity 클라이언트를 함께 확인하는 개발 화면입니다.
 
 ```text
 YuJanggi
@@ -116,15 +134,17 @@ Both Clients
 
 # 🔄 Current Network Flow
 
+## 1. 연결 및 Protocol Handshake
+
+![Connect & Handshake Flow](./assets/handshake-flow.png)
+
 <details>
-<summary><b>1. 연결 및 Protocol Handshake</b></summary>
+<summary><b>상세 흐름 및 Protocol 보기</b></summary>
 
 <br>
 
 Unity 클라이언트가 TCP 서버에 연결한 뒤  
 Protocol과 Core 버전을 확인하는 최초 연결 과정입니다.
-
-![Connect & Handshake Flow](./assets/handshake-flow.png)
 
 ```text
 Unity
@@ -143,15 +163,17 @@ Unity
 
 ---
 
+## 2. Matching Flow
+
+![Matching Flow](./assets/matching-flow.png)
+
 <details>
-<summary><b>2. Matching Flow</b></summary>
+<summary><b>상세 흐름 및 Protocol 보기</b></summary>
 
 <br>
 
 두 클라이언트가 매칭을 신청하고  
 포진 선택까지 완료하면 서버가 `GameRoom`을 생성합니다.
-
-![Matching Flow](./assets/matching-flow.png)
 
 ```text
 MatchingRequest
@@ -185,15 +207,17 @@ GameRoom
 
 ---
 
+## 3. InGame Start Flow
+
+![InGame Flow](./assets/ingame-flow.png)
+
 <details>
-<summary><b>3. InGame Start Flow</b></summary>
+<summary><b>상세 흐름 및 Protocol 보기</b></summary>
 
 <br>
 
 `GameReady` 이후 양쪽 Unity 클라이언트가 게임 씬 준비를 완료하면  
 서버가 실제 게임 시작 시점을 동기화합니다.
-
-![InGame Flow](./assets/ingame-flow.png)
 
 ```text
 Client A ─┐
@@ -401,17 +425,17 @@ Message Factory
 ```
 
 ---
-
 # 🌱 Currently Learning
-
 - ASP.NET Core
-- REST API
-- SQL / MSSQL
 - TCP Server Architecture
 - Async / Concurrent Server Programming
 - Server Authoritative Game Architecture
+
+### 📌 Planned
 - Docker
 - Linux Deployment
+- SQL / MSSQL
+- REST API
 
 ---
 
@@ -424,7 +448,7 @@ Message Factory
 - Server Authoritative Design
 - Deterministic Turn-Based Game Engine
 - Client / Server Shared Core
-- Maintainable Software Design
+- ***Maintainable Software Design***
 
 ---
 
@@ -435,14 +459,6 @@ Message Factory
 
 프로젝트를 개발하면서 발생한 문제를 단순히 우회하기보다  
 구조를 다시 정의하고 책임을 분리하는 과정을 중요하게 생각합니다.
-
----
-
-# 📊 GitHub
-
-![GitHub Stats](https://github-readme-stats.vercel.app/api?username=SeokJinYoo98&show_icons=true&hide_border=true)
-
-![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=SeokJinYoo98&layout=compact&hide_border=true)
 
 ---
 
