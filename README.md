@@ -1,14 +1,14 @@
-# 📊 GitHub Activity
+## 📊 GitHub Activity
 
-[![SeokJinYoo98의 최근 31일 GitHub 기여 활동](https://github-readme-activity-graph.vercel.app/graph?username=SeokJinYoo98&theme=github-compact&hide_border=true&area=true&days=31&custom_title=GitHub%20Activity%20-%20Last%2031%20Days)](https://github.com/SeokJinYoo98?tab=overview)
+[![GitHub Activity - Last 31 Days](https://github-readme-activity-graph.vercel.app/graph?username=SeokJinYoo98&theme=github-compact&hide_border=true&area=true&days=31&custom_title=GitHub%20Activity%20-%20Last%2031%20Days)](https://github.com/SeokJinYoo98?tab=overview)
 
-최근 31일의 GitHub 기여 활동입니다. 커밋 외 기여도 포함하며, 이미지 갱신에는 시간이 걸릴 수 있습니다.
+최근 31일간의 GitHub 활동입니다.
 
 [![GitHub Stats](https://github-readme-stats.vercel.app/api?username=SeokJinYoo98&show_icons=true&hide_border=true)](https://github.com/SeokJinYoo98?tab=overview)
+
 [![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=SeokJinYoo98&layout=compact&hide_border=true)](https://github.com/SeokJinYoo98?tab=repositories)
 
 [전체 기여 기록 보기](https://github.com/SeokJinYoo98?tab=overview) · [저장소 둘러보기](https://github.com/SeokJinYoo98?tab=repositories)
-
 ---
 
 # 👋 Yoo Seokjin
@@ -28,16 +28,17 @@ Unity 클라이언트 개발에서 시작해 현재는
 ### Language
 
 ![C#](https://img.shields.io/badge/C%23-512BD4?style=flat-square&logo=csharp&logoColor=white)
-![C++](https://img.shields.io/badge/C%23-512BD4?style=flat-square&logo=csharp&logoColor=white)
+![C++](https://img.shields.io/badge/C%2B%2B-00599C?style=flat-square&logo=cplusplus&logoColor=white)
 
 ### Engine
 
-![UnityEngine](https://img.shields.io/badge/Unity-000000?style=flat-square&logo=unity&logoColor=white)
-![UnrealEngine]
+![Unity](https://img.shields.io/badge/Unity-000000?style=flat-square&logo=unity&logoColor=white)
+![Unreal Engine](https://img.shields.io/badge/Unreal%20Engine-0E1128?style=flat-square&logo=unrealengine&logoColor=white)
 
 ### Graphics API
-![OpenGL]: King of Tanks Team Project (팀장)
-![DirectX]: Rendering Framework
+
+![OpenGL](https://img.shields.io/badge/OpenGL-5586A4?style=flat-square&logo=opengl&logoColor=white) — King of Tanks Team Project (팀장)  
+![DirectX](https://img.shields.io/badge/DirectX-107C10?style=flat-square) — Rendering Framework
 
 ### Server / Backend
 
@@ -459,10 +460,3 @@ Message Factory
 
 프로젝트를 개발하면서 발생한 문제를 단순히 우회하기보다  
 구조를 다시 정의하고 책임을 분리하는 과정을 중요하게 생각합니다.
-
----
-
-## 📫 Contact
-
-GitHub  
-**@SeokJinYoo98**
