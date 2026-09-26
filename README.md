@@ -1,26 +1,32 @@
 # 👋 Yoo Seokjin
 
-### C# / Unity / .NET Developer  
-게임 클라이언트에서 시작해 현재는 **서버·네트워크 구조와 백엔드 개발**까지 확장하고 있습니다.
+### C# / Unity / .NET Developer
 
-단순히 기능을 추가하기보다  
-**책임을 분리하고, 데이터 소유권과 흐름을 명확하게 만드는 구조**에 관심이 많습니다.
+Unity 클라이언트 개발에서 시작해 현재는  
+**서버 · 네트워크 · 백엔드 구조**까지 개발 범위를 확장하고 있습니다.
+
+기능을 빠르게 추가하는 것보다  
+**책임, 데이터 소유권, 실행 흐름을 명확하게 분리하는 구조**에 관심이 많습니다.
 
 ---
 
-## 🔧 Tech Stack
+## 🛠 Tech Stack
 
 ### Language
+
 ![C#](https://img.shields.io/badge/C%23-512BD4?style=flat-square&logo=csharp&logoColor=white)
 
 ### Client
+
 ![Unity](https://img.shields.io/badge/Unity-000000?style=flat-square&logo=unity&logoColor=white)
 
-### Backend / Server
+### Server / Backend
+
 ![.NET](https://img.shields.io/badge/.NET-512BD4?style=flat-square&logo=dotnet&logoColor=white)
-![TCP](https://img.shields.io/badge/TCP-Networking-blue?style=flat-square)
+![TCP](https://img.shields.io/badge/TCP-Networking-00599C?style=flat-square)
 
 ### Database / Infrastructure
+
 ![SQL Server](https://img.shields.io/badge/SQL%20Server-CC2927?style=flat-square&logo=microsoftsqlserver&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-2496ED?style=flat-square&logo=docker&logoColor=white)
 ![Linux](https://img.shields.io/badge/Linux-FCC624?style=flat-square&logo=linux&logoColor=black)
@@ -29,144 +35,383 @@
 
 # 🀄 YuJanggi
 
-현재 가장 집중해서 개발하고 있는 **온라인 장기 프로젝트**입니다.
+온라인 장기를 직접 구현하며  
+클라이언트, 서버, Protocol, Core의 책임을 분리하고 있는 개인 프로젝트입니다.
 
-Unity 클라이언트에 게임 규칙을 직접 결합하는 구조에서 시작해  
-Core / Protocol / Client / Server 책임을 분리하는 방향으로 지속적으로 리팩토링하고 있습니다.
-
-## Architecture
+초기에는 Unity 내부에 게임 로직이 결합되어 있었지만,  
+현재는 게임 규칙과 네트워크 구조를 독립적으로 분리하는 방향으로 발전시키고 있습니다.
 
 ```text
-                YuJanggi
-
-        ┌──────────────────────┐
-        │    Unity Client A    │
-        └──────────┬───────────┘
-                   │
-                   │ TCP
-                   ▼
-        ┌──────────────────────┐
-        │   YuJanggi Server    │
-        │                      │
-        │  Handshake           │
-        │  Matching            │
-        │  GameRoom            │
-        │  InGame Routing      │
-        └──────────┬───────────┘
-                   │
-                   │ TCP
-                   ▼
-        ┌──────────────────────┐
-        │    Unity Client B    │
-        └──────────────────────┘
+YuJanggi
+│
+├─ YuJanggi.Unity
+│   └─ Unity Client
+│
+├─ YuJanggi.Server.V2
+│   └─ .NET TCP Server
+│
+├─ YuJanggi.Protocol.V2
+│   └─ Client / Server Protocol
+│
+└─ YuJanggi.Core.V2
+    └─ Pure C# Janggi Engine
 ```
 
 ---
 
-## Repository Structure
+# 🌐 Online Architecture
 
-### 🎮 YuJanggi.Unity
-
-Unity 기반 클라이언트입니다.
+현재 온라인 흐름은 다음 단계까지 구현하고 있습니다.
 
 ```text
-Core 기반 게임 진행
-NetworkConnection
-RequestDispatcher
-MatchingHandler
-InGameHandler
-GameSession
-InGameFlow
-```
-
-로컬 게임과 네트워크 게임의 실행 흐름을 분리하고 있습니다.
-
----
-
-### 🖥 YuJanggi.Server.V2
-
-.NET 기반 TCP 게임 서버입니다.
-
-현재 서버는 우선 **두 클라이언트 사이의 네트워크 흐름을 완성하는 것**에 집중하고 있습니다.
-
-```text
-YuJanggiServer
-│
-├─ MatchingHandler
-│   └─ MatchMakingService
-│       └─ GameRoomManager
-│
-└─ GameHandler
-    └─ GameRoomManager
-        └─ GameRoom
-            ├─ Cho Client
-            └─ Han Client
-```
-
-현재 구현 범위:
-
-```text
-Client Connect
+Connect
 → Protocol Handshake
-→ Matching Request
-→ Matching Found
-→ Formation Select
+→ Matching
+→ Formation Submit
 → GameRoom 생성
 → GameReady
 → GameSceneReady
 → GameStart
 ```
 
-이후 이동 명령 중계와 서버 권위형 게임 구조를 단계적으로 추가할 예정입니다.
+현재는 먼저
+
+**Client A ↔ Server ↔ Client B**
+
+통신 구조를 완성하는 데 집중하고 있습니다.
+
+서버 권위형 게임 검증은 이후 단계에서  
+`YuJanggi.Core.V2`의 `MatchModel`을 서버 `GameRoom`에 연결하는 방식으로 확장할 예정입니다.
 
 ---
 
-### ⚙ YuJanggi.Core.V2
+# 🎯 Target Architecture
 
-Unity에 의존하지 않는 **순수 C# 장기 엔진**입니다.
+향후 목표는 서버가 실제 대국 상태를 소유하고  
+클라이언트의 명령을 검증하는 **Server Authoritative 구조**입니다.
+
+![YuJanggi Target Online Flow](./assets/target-online-flow.png)
+
+향후 목표 흐름:
 
 ```text
-Board
-Rule
-Turn
-Score
-Record
+Client
+   ↓
+Move Request
+   ↓
+Server GameRoom
+   ↓
+MatchModel
+   ↓
+Rule Validation
+   ↓
+Move Applied
+   ↓
+Both Clients
+```
+
+현재 해당 Move / Turn / Timeout / GameEnd 흐름은 아직 구현 전입니다.
+
+---
+
+# 🔄 Current Network Flow
+
+<details>
+<summary><b>1. 연결 및 Protocol Handshake</b></summary>
+
+<br>
+
+Unity 클라이언트가 TCP 서버에 연결한 뒤  
+Protocol과 Core 버전을 확인하는 최초 연결 과정입니다.
+
+![Connect & Handshake Flow](./assets/handshake-flow.png)
+
+```text
+Unity
+→ TCP Connect
+→ ProtocolHandshakeRequest
+
+Server
+→ Version Check
+→ ProtocolHandshakeResponse
+
+Unity
+→ Connected
+```
+
+</details>
+
+---
+
+<details>
+<summary><b>2. Matching Flow</b></summary>
+
+<br>
+
+두 클라이언트가 매칭을 신청하고  
+포진 선택까지 완료하면 서버가 `GameRoom`을 생성합니다.
+
+![Matching Flow](./assets/matching-flow.png)
+
+```text
+MatchingRequest
+→ MatchingResponse
+→ MatchingFound
+
+→ FormationSubmit
+→ FormationResponse
+
+→ GameRoom 생성
+→ GameReady
+```
+
+### 용어 기준
+
+```text
+Matching
+= 상대를 찾아 게임을 성사시키는 과정
+
+Match
+= 성사된 한 대국
+
+MatchId
+= 대국 식별자
+
+GameRoom
+= 서버에서 두 ClientSession을 묶는 네트워크 룸
+```
+
+</details>
+
+---
+
+<details>
+<summary><b>3. InGame Start Flow</b></summary>
+
+<br>
+
+`GameReady` 이후 양쪽 Unity 클라이언트가 게임 씬 준비를 완료하면  
+서버가 실제 게임 시작 시점을 동기화합니다.
+
+![InGame Flow](./assets/ingame-flow.png)
+
+```text
+Client A ─┐
+          ├─ GameSceneReadyRequest
+Client B ─┘
+          ↓
+       GameRoom
+          ↓
+   Both Ready?
+          ↓
+     Started = true
+          ↓
+    GameStartEvent
+      ↙       ↘
+ Client A   Client B
+      ↓       ↓
+GameSession.StartGame()
+```
+
+### 현재 Protocol
+
+```text
+GameSceneReadyRequest
+- Payload 없음
+
+GameStartEvent
+- StartedAt
+```
+
+MoveRequest / MoveEvent 및 실제 대국 명령 동기화는  
+아직 구현 전입니다.
+
+</details>
+
+---
+
+# 🖥 Server Architecture
+
+현재 서버는 게임 규칙을 직접 실행하지 않고  
+네트워크 세션 관리와 메시지 전달 책임에 집중하고 있습니다.
+
+```text
+YuJanggiServer
+│
+├─ MatchingHandler
+│   │
+│   └─ MatchMakingService
+│       │
+│       └─ GameRoomManager
+│
+└─ GameHandler
+    │
+    └─ GameRoomManager
+        │
+        └─ GameRoom
+            ├─ ChoPlayer
+            └─ HanPlayer
+```
+
+### Responsibilities
+
+```text
+YuJanggiServer
+= 서버 생명주기
+= ClientMessage → Handler Routing
+
+MatchingHandler
+= Matching Protocol 처리
+
+MatchMakingService
+= 대기열 및 매칭 성사 과정
+
+GameHandler
+= InGame Protocol 처리
+
+GameRoomManager
+= GameRoom 생성 / 조회 / 제거 / 수명 관리
+
+GameRoom
+= 두 ClientSession
+= Ready / Started / Closed 상태
+= 참가자 및 상대 조회
+```
+
+---
+
+# 🎮 Client Architecture
+
+Unity 클라이언트에서는  
+로컬 게임과 네트워크 게임의 시작 흐름을 분리하고 있습니다.
+
+```text
+InGameManager
+      │
+      ▼
+  IInGameFlow
+   ┌────┴────┐
+   │         │
+Local      Network
+Flow        Flow
+   │         │
+   │         ├─ GameSceneReadyRequest
+   │         │
+   │         └─ Wait GameStartEvent
+   │
+   └───────────────┐
+                   ▼
+          GameSession.StartGame()
+```
+
+네트워크 통신은 다음 역할로 분리하고 있습니다.
+
+```text
+NetworkConnection
+= 실제 연결과 메시지 수신
+
+RequestDispatcher
+= RequestId 기반 Request / Response 처리
+
+MatchingHandler
+= Matching 메시지 처리
+
+InGameHandler
+= InGame 메시지 처리
+```
+
+---
+
+# ⚙ YuJanggi.Core.V2
+
+Unity에 의존하지 않는 순수 C# 장기 엔진입니다.
+
+```text
+MatchModel
+
+├─ BoardModel
+├─ JanggiRule
+├─ Turn
+├─ Score
+└─ Record
+```
+
+클라이언트와 서버가 동일한 규칙 엔진을 사용할 수 있도록  
+Unity Runtime과 장기 규칙을 분리했습니다.
+
+향후 서버 권위형 구조에서는:
+
+```text
+GameRoom
+   ↓
 MatchModel
 ```
 
-클라이언트와 서버가 동일한 게임 규칙을 사용할 수 있도록  
-Unity Runtime과 게임 규칙을 분리하는 것을 목표로 합니다.
+형태로 연결할 예정입니다.
 
 ---
 
-### 📡 YuJanggi.Protocol.V2
+# 📡 YuJanggi.Protocol.V2
 
-클라이언트와 서버가 공유하는 네트워크 Protocol 프로젝트입니다.
+Unity와 .NET 서버가 공유하는 Protocol 프로젝트입니다.
 
 ```text
 ClientMessage
 ServerMessage
-Request / Response
-Server Event
-Protocol DTO
+
+Request
+Response
+Event
+
+Payload DTO
+Message Factory
 ```
 
-Core와 Protocol을 분리하여  
-네트워크 계약이 게임 엔진 구현에 직접 의존하지 않도록 구성하고 있습니다.
+게임 엔진과 Protocol을 분리하여  
+네트워크 계약이 `YuJanggi.Core.V2` 구현에 직접 의존하지 않도록 구성하고 있습니다.
+
+---
+
+# 🚧 Current Progress
+
+```text
+✅ TCP Connection
+✅ Protocol Handshake
+
+✅ Matching Request
+✅ Matching Cancel
+✅ Matching Found
+
+✅ Formation Submit
+✅ GameRoom Creation
+✅ GameReady
+
+✅ GameSceneReady
+✅ GameStart synchronization
+
+🚧 MoveRequest
+🚧 MoveEvent
+🚧 Turn synchronization
+🚧 GameEnd synchronization
+
+⬜ Server Authoritative MatchModel
+⬜ Server Turn / Timeout
+⬜ Reconnection / State Recovery
+⬜ Linux Deployment
+```
 
 ---
 
 # 🌱 Currently Learning
 
-```text
-ASP.NET Core
-REST API
-SQL / MSSQL
-TCP Server Architecture
-Server-authoritative Game Architecture
-Docker
-Linux Deployment
-```
+- ASP.NET Core
+- REST API
+- SQL / MSSQL
+- TCP Server Architecture
+- Async / Concurrent Server Programming
+- Server Authoritative Game Architecture
+- Docker
+- Linux Deployment
 
 ---
 
@@ -175,25 +420,25 @@ Linux Deployment
 - C# / .NET Server Development
 - TCP Network Programming
 - Game Server Architecture
-- Server Authoritative Design
-- Deterministic Turn-based Game Engine
-- Client / Server Shared Core
 - Backend Architecture
+- Server Authoritative Design
+- Deterministic Turn-Based Game Engine
+- Client / Server Shared Core
 - Maintainable Software Design
 
 ---
 
-# 📌 Development Philosophy
+# 💭 Development Philosophy
 
-> 기능을 빠르게 추가하는 것보다  
-> 각 객체가 어떤 책임을 가지고 어떤 데이터를 소유하는지 명확하게 만드는 것을 중요하게 생각합니다.
+> 기능을 추가하기 전에  
+> 누가 상태를 소유하고, 누가 책임을 가지며, 데이터가 어떤 흐름으로 이동하는지를 먼저 고민합니다.
 
-게임 개발 과정에서 발생한 구조적 문제를 직접 리팩토링하면서  
-클라이언트, 서버, Protocol, Core의 책임을 나누는 과정을 학습하고 있습니다.
+프로젝트를 개발하면서 발생한 문제를 단순히 우회하기보다  
+구조를 다시 정의하고 책임을 분리하는 과정을 중요하게 생각합니다.
 
 ---
 
-## GitHub Stats
+# 📊 GitHub
 
 ![GitHub Stats](https://github-readme-stats.vercel.app/api?username=SeokJinYoo98&show_icons=true&hide_border=true)
 
@@ -201,7 +446,7 @@ Linux Deployment
 
 ---
 
-## Contact
+## 📫 Contact
 
 GitHub  
 **@SeokJinYoo98**
