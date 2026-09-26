@@ -1,14 +1,7 @@
-## 📊 GitHub Activity
+## 📊 GitHub
 
-[![GitHub Activity - Last 31 Days](https://github-readme-activity-graph.vercel.app/graph?username=SeokJinYoo98&theme=github-compact&hide_border=true&area=true&days=31&custom_title=GitHub%20Activity%20-%20Last%2031%20Days)](https://github.com/SeokJinYoo98?tab=overview)
-
-최근 31일간의 GitHub 활동입니다.
-
-[![GitHub Stats](https://github-readme-stats.vercel.app/api?username=SeokJinYoo98&show_icons=true&hide_border=true)](https://github.com/SeokJinYoo98?tab=overview)
-
-[![Top Languages](https://github-readme-stats.vercel.app/api/top-langs/?username=SeokJinYoo98&layout=compact&hide_border=true)](https://github.com/SeokJinYoo98?tab=repositories)
-
-[전체 기여 기록 보기](https://github.com/SeokJinYoo98?tab=overview) · [저장소 둘러보기](https://github.com/SeokJinYoo98?tab=repositories)
+[전체 기여 기록 보기](https://github.com/SeokJinYoo98?tab=overview) ·
+[저장소 둘러보기](https://github.com/SeokJinYoo98?tab=repositories)
 ---
 
 # 👋 Yoo Seokjin
