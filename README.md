@@ -36,7 +36,7 @@ Unity 클라이언트 개발에서 시작해 현재는
 # 🀄 YuJanggi
 
 온라인 장기를 직접 구현하며  
-클라이언트, 서버, Protocol, Core의 책임을 분리하고 있는 개인 프로젝트입니다.
+클라이언트, 서버, Protocol, Engine의 책임을 분리하고 있는 개인 프로젝트입니다.
 
 초기에는 Unity 내부에 게임 로직이 결합되어 있었지만,  
 현재는 게임 규칙과 네트워크 구조를 독립적으로 분리하는 방향으로 발전시키고 있습니다.
@@ -55,10 +55,10 @@ YuJanggi
 ├─ YuJanggi.Server.V2
 │   └─ .NET TCP Server
 │
-├─ YuJanggi.Protocol.V2
+├─ YuJanggi.Protocol
 │   └─ Client / Server Protocol
 │
-└─ YuJanggi.Core.V2
+└─ YuJanggi.Engine
     └─ Pure C# Janggi Engine
 ```
 
@@ -86,7 +86,7 @@ Connect
 통신 구조를 완성하는 데 집중하고 있습니다.
 
 서버 권위형 게임 검증은 이후 단계에서  
-`YuJanggi.Core.V2`의 `MatchModel`을 서버 `GameRoom`에 연결하는 방식으로 확장할 예정입니다.
+`YuJanggi.Engine`의 `MatchModel`을 서버 `GameRoom`에 연결하는 방식으로 확장할 예정입니다.
 
 ---
 
@@ -131,7 +131,7 @@ Both Clients
 <br>
 
 Unity 클라이언트가 TCP 서버에 연결한 뒤  
-Protocol과 Core 버전을 확인하는 최초 연결 과정입니다.
+Protocol과 Engine 버전을 확인하는 최초 연결 과정입니다.
 
 ```text
 Unity
@@ -333,7 +333,7 @@ InGameHandler
 
 ---
 
-# ⚙ YuJanggi.Core.V2
+# ⚙ YuJanggi.Engine
 
 Unity에 의존하지 않는 순수 C# 장기 엔진입니다.
 
@@ -362,7 +362,7 @@ MatchModel
 
 ---
 
-# 📡 YuJanggi.Protocol.V2
+# 📡 YuJanggi.Protocol
 
 Unity와 .NET 서버가 공유하는 Protocol 프로젝트입니다.
 
@@ -379,7 +379,7 @@ Message Factory
 ```
 
 게임 엔진과 Protocol을 분리하여  
-네트워크 계약이 `YuJanggi.Core.V2` 구현에 직접 의존하지 않도록 구성하고 있습니다.
+네트워크 계약이 `YuJanggi.Engine` 구현에 직접 의존하지 않도록 구성하고 있습니다.
 
 ---
 
@@ -434,7 +434,7 @@ Message Factory
 - Backend Architecture
 - Server Authoritative Design
 - Deterministic Turn-Based Game Engine
-- Client / Server Shared Core
+- Client / Server Shared Engine
 - ***Maintainable Software Design***
 
 ---
