@@ -35,6 +35,32 @@ TCP 연결 → 버전 Handshake → 매칭 → 포진 제출
 → GameReady → 양쪽 GameSceneReady → GameStartEvent
 ```
 
+## NuGet / UPM 패키징 자동화 ⭐⭐⭐
+
+기존에는 패키지 버전 변경 시 다음 작업을 수동으로 반복했습니다.
+
+```text
+버전 입력
+    ↓
+코드 버전 변경
+    ↓
+.csproj 변경
+    ↓
+package.json 변경
+    ↓
+dotnet pack
+    ↓
+UPM 생성
+
+이를 Upm_Nuget_Version_Change.bat 파일로 자동화했습니다.
+개선 결과
+- 반복적인 패키징 작업 단순화
+- 버전 변경 누락 가능성 감소
+- NuGet / UPM 버전 불일치 방지
+- 배포 절차 일관성 확보
+
+
+
 서버는 양쪽 클라이언트의 게임 화면 준비를 확인한 뒤 시작 이벤트를 보냅니다. 서버에서 기물 이동 요청을 검증하고 두 클라이언트에 동기화하는 처리는 아직 연결되어 있지 않습니다.
 
 구현 범위와 코드는 위 프로젝트별 README에서 확인할 수 있습니다.
